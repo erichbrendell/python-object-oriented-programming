@@ -2,9 +2,12 @@ class Funcionario:
     """
     Representa um funcionário de uma empresa.
 
-    Um funcionário possui nome, setor, cargo e empresa,
-    Além de armazenar essas informações, o funcionário 
-    pode gerar uma mensagem de apresentação.
+    Um funcionário possui nome, setor e cargo.
+
+    A empresa é compartilhada entre todos os funcionários
+    por meio de um atributo de classe. Além de armazenar
+    essas informações, o funcionário pode gerar uma mensagem
+    de apresentação.
     """
 
     empresa = "Curso em Vídeo"
@@ -17,7 +20,6 @@ class Funcionario:
             nome: Nome do funcionário.
             setor: Setor onde o funcionário trabalha.
             cargo: Cargo ocupado pelo funcionário.
-            empresa: Nome da empresa. O padrão é "Curso em Vídeo".
         """
         self.nome = nome
         self.setor = setor
@@ -58,6 +60,24 @@ funcionarios: list[Funcionario] = [
     Funcionario("Maria", "Marketing", "Gerente")
 ]
 
-# Chamada dos métods de apresentação
+# Chamada dos métodos de apresentação
 for funcionario in funcionarios:
     print(funcionario.apresentar())
+
+Funcionario.empresa = "Hostnet"
+print("\n>>>> Todos os funcionários agoram são da Hostnet\n")
+
+for funcionario in funcionarios:
+    print(funcionario.apresentar())
+    print(funcionario.__dict__)
+    print("-" * 80)
+
+print(Funcionario.__dict__["empresa"])
+
+funcionarios[0].empresa = "Google" # Cria um atributo de instância chamado "empresa", ocultando o atributo de classe para este objeto.
+print("\n>>>> Mudando a empresa do 1º funcionário para Google\n")
+
+for funcionario in funcionarios:
+    print(funcionario.apresentar())
+    print(funcionario.__dict__)
+    print("-" * 80)
