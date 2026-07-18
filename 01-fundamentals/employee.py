@@ -7,7 +7,9 @@ class Funcionario:
     pode gerar uma mensagem de apresentação.
     """
 
-    def __init__(self, nome: str, setor: str, cargo: str, empresa: str = 'Curso em Vídeo') -> None:
+    empresa = "Curso em Vídeo"
+
+    def __init__(self, nome: str, setor: str, cargo: str) -> None:
         """
         Inicializa um novo funcionário.
 
@@ -20,7 +22,6 @@ class Funcionario:
         self.nome = nome
         self.setor = setor
         self.cargo = cargo
-        self.empresa = empresa
 
     def __str__(self) -> str:
         """
